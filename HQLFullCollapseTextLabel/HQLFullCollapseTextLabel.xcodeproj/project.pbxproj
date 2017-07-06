@@ -13,6 +13,7 @@
 		4AB9B39D1F0DE4A60011F89E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB9B39B1F0DE4A60011F89E /* Main.storyboard */; };
 		4AB9B39F1F0DE4A60011F89E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB9B39E1F0DE4A60011F89E /* Assets.xcassets */; };
 		4AB9B3A21F0DE4A60011F89E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB9B3A01F0DE4A60011F89E /* LaunchScreen.storyboard */; };
+		4AB9B3AE1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9B3AD1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		4AB9B39E1F0DE4A60011F89E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB9B3A11F0DE4A60011F89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB9B3A31F0DE4A60011F89E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB9B3AC1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FullCollapseTextButton.h"; sourceTree = "<group>"; };
+		4AB9B3AD1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FullCollapseTextButton.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 		4AB9B3AA1F0DE5230011F89E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				4AB9B3AC1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.h */,
+				4AB9B3AD1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			files = (
 				4AB9B39A1F0DE4A60011F89E /* ViewController.m in Sources */,
 				4AB9B3971F0DE4A60011F89E /* AppDelegate.m in Sources */,
+				4AB9B3AE1F0DE7B70011F89E /* UILabel+FullCollapseTextButton.m in Sources */,
 				4AB9B3941F0DE4A60011F89E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
