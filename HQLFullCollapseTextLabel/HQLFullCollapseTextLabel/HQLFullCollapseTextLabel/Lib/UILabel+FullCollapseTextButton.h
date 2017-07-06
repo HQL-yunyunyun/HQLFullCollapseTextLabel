@@ -16,6 +16,7 @@ typedef enum {
 
 /*
  重写 setText / sizeToFit 两个方法 --- 只要启用了这个方法，label的高度是不能控制的
+ 如果设置了label的背景颜色，button将不会显示
  */
 @interface UILabel (FullCollapseTextButton)
 

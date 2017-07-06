@@ -26,7 +26,7 @@ NSString const * HQLOriginUserInteractionEnabledKey;
 #define kFullCollapseTextButtonTag 2304
 
 #define kPointString @"..."
-#define kMargin 3
+#define kMargin 5
 
 @interface UILabel ()
 
@@ -65,9 +65,7 @@ NSString const * HQLOriginUserInteractionEnabledKey;
         // 判断text是否能一行显示
         NSUInteger textLine = [self getStringLineWithString:text width:self.frame.size.width];
         if (textLine < self.numberOfCollapseLines) {
-            self.useButton = YES;
             [self hql_setText:text];
-            
             self.useButton = NO;
             return;
         }
@@ -101,7 +99,7 @@ NSString const * HQLOriginUserInteractionEnabledKey;
             case HQLFullCollapseTextButtonLabelStatusCollapse: { // 需要显示一部分
                 // 截取string
                 CGFloat pointStringWidth = [kPointString sizeWithAttributes:[self labelFontAttribute]].width;
-                CGFloat cutStringWidth = self.frame.size.width * self.numberOfCollapseLines - 2 * kMargin - buttonWidth - pointStringWidth;
+                CGFloat cutStringWidth = self.frame.size.width * self.numberOfCollapseLines - 3 * kMargin - buttonWidth - pointStringWidth;
                 NSString *cutString = [self getRangeStringWithString:self.originString width:cutStringWidth];
                 cutString = [cutString stringByAppendingString:kPointString];
                 self.cutString = cutString;
@@ -110,6 +108,8 @@ NSString const * HQLOriginUserInteractionEnabledKey;
             }
             case HQLFullCollapseTextButtonLabelStatusUnknow: { break; } // 不会到这个状态
         }
+        
+//        NSLog(@"cutstring : %@, originstring : %@", self.cutString, self.originString);
         
         // 会调用 hql_sizeToFit
         [self sizeToFit];
@@ -190,7 +190,7 @@ NSString const * HQLOriginUserInteractionEnabledKey;
 }
 
 - (NSString *)getRangeStringWithString:(NSString *)string width:(CGFloat)width {
-    NSString *targetString;
+    NSString *targetString = @"";
     NSRange range;
     CGFloat targetWidth = 0;
     for(int i=0; i<string.length; i+=range.length){
@@ -200,6 +200,7 @@ NSString const * HQLOriginUserInteractionEnabledKey;
         if (sWidth + targetWidth > width) {
             break;
         } else {
+            targetWidth += sWidth;
             targetString = [targetString stringByAppendingString:s];
         }
     }
@@ -214,6 +215,8 @@ NSString const * HQLOriginUserInteractionEnabledKey;
     if (numberOfCollapseLines == 0) {
         self.numberOfLines = self.originNumberOfLines;
         self.userInteractionEnabled = self.originUserInteractionEnabled;
+        [self.fullCollapseTextButton removeFromSuperview];
+        self.fullCollapseTextButton = nil;
     } else {
         self.originUserInteractionEnabled = self.userInteractionEnabled;
         self.originNumberOfLines = self.numberOfLines;
@@ -305,7 +308,9 @@ NSString const * HQLOriginUserInteractionEnabledKey;
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(fullCollapseTextButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = kFullCollapseTextButtonTag;
-        [self addSubview:button];
+//        [self addSubview:button];
+        [self bringSubviewToFront:button];
+        [self.layer addSublayer:button.layer];
         [self setFullCollapseTextButton:button];
     }
     return objc_getAssociatedObject(self, &HQLFullCollapseTextButtonKey);
