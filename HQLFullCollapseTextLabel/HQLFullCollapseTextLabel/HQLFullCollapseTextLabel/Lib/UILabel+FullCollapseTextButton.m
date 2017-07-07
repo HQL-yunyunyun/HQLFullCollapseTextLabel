@@ -284,6 +284,10 @@ NSString const * HQLOriginUserInteractionEnabledKey;
 
 // is use button
 - (void)setUseButton:(BOOL)useButton {
+    if (!useButton) {
+        [self.fullCollapseTextButton removeFromSuperview];
+        self.fullCollapseTextButton = nil;
+    }
     objc_setAssociatedObject(self, &HQLUseButtonKey, [NSNumber numberWithBool:useButton], OBJC_ASSOCIATION_ASSIGN);
 }
 
