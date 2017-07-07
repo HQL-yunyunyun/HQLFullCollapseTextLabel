@@ -33,6 +33,6 @@ typedef enum {
 @property (assign, nonatomic, readonly) HQLFullCollapseTextButtonLabelStatus fullCollapseTextButtonLabelStatus;
 
 @property (copy, nonatomic) void(^fullCollapseTextButtonDidClickBlock)(UIButton *button, HQLFullCollapseTextButtonLabelStatus status);
-@property (copy, nonatomic) void(^labelFrameDidChangeBlock)(CGRect labelFrame);
+@property (copy, nonatomic) void(^labelFrameDidChangeBlock)(CGRect labelFrame, CGRect buttonFrame, CGRect totalFrame);
 
 @end

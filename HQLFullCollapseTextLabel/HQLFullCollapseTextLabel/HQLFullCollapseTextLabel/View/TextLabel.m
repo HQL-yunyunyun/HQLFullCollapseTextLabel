@@ -10,8 +10,12 @@
 
 @implementation TextLabel
 
-- (void)drawTextInRect:(CGRect)rect {
-    [super drawTextInRect:rect];
-}
+//- (void)drawTextInRect:(CGRect)rect {
+//    [super drawTextInRect:rect];
+//}
+//
+//- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+//    return CGRectZero;
+//}
 
 @end
