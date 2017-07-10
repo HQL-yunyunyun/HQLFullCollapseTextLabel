@@ -7,7 +7,7 @@
 //
 
 #import "UILabel+FullCollapseTextButton.h"
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 
 NSString const * HQLNumberOfCollapseLinesKey;
 NSString const * HQLFullCollapseTextButtonKey;
